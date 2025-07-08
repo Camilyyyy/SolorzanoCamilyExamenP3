@@ -8,6 +8,7 @@ namespace SolorzanoCamilyExamenP3.Modelo
 {
     using SQLite;
     using System.ComponentModel;
+    using Windows.Media.Capture.Frames;
 
     public class Receta : INotifyPropertyChanged
     {
@@ -27,7 +28,26 @@ namespace SolorzanoCamilyExamenP3.Modelo
 
         public Receta (string nombreRecetap, string ingredientesRecetap, int TiempoPreparacionMinutosp, bool EsVegetarianap)
         {
-
+            nombreReceta = nombreRecetap ?? string.Empty;
+            ingredientesReceta = ingredientesRecetap ?? string.Empty;
+            TiempoPreparacionMinutos = TiempoPreparacionMinutosp;
+            EsVegetariana = EsVegetarianap;
         }
+
+        [PrimaryKey, AutoIncrement]
+        public int idReceta
+        {
+            get => idReceta;
+            set => SetProperty(ref idReceta, value);
+        }
+
+
+
+
+
+
+
+
+
     }
 }
