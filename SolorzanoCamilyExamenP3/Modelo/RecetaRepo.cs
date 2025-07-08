@@ -32,7 +32,26 @@ namespace SolorzanoCamilyExamenP3.Modelo
             try
             {
                 Init();
-                if 
+                if (string.IsNullOrEmpty(nombre))
+                    throw new Exception("Se requiere un nombre de la receta valido");
+                result = conn.Insert(new Receta(nombre, ingredientes, TiempoPreparacionMinutos, EsVegetariana));
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error al agregar {0}. Error {1}", nombre, ex.Message);
+
+            }
+        }
+
+        public void UpdateReceta(Receta receta)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+                if (receta == null || string.IsNullOrEmpty(receta.nombreReceta))
+                    throw new Exception("Receta valida requerida");
+
             }
         }
     }
